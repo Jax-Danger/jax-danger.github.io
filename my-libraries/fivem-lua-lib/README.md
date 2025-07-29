@@ -28,7 +28,7 @@ FiveM Lua Lib is a collection of reusable Lua functions, classes, and utilities 
 
 ### 🚀 Quick Start
 
-1. **📦 Include the library** in your resource
+1. **📦 Include the library** in your resource ([github](https://github.com/CodesAndGames/fivem-lua-lib))
 2. **📥 Import the modules** you need
 3. **🏗️ Start building** your FiveM features
 
