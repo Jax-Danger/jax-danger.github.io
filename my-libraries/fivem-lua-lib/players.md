@@ -12,24 +12,24 @@ The Players module provides simplified methods for managing and manipulating pla
 
 ```lua
 -- Get player coordinates
-local coords = fivem.players.pos()
+local coords = fivem.players:pos()
 
 -- Or use global access (no fivem prefix needed)
-local coords = players.pos()
+local coords = players:pos()
 
 -- Teleport player
-fivem.players.tp({x = 100.0, y = 200.0, z = 30.0})
+fivem.players:tp({x = 100.0, y = 200.0, z = 30.0})
 
 -- Or use global access
-players.tp({x = 100.0, y = 200.0, z = 30.0})
+players:tp({x = 100.0, y = 200.0, z = 30.0})
 
 -- Get/set health
-local health = fivem.players.hp()
-fivem.players.setHp(100)
+local health = fivem.players:hp()
+fivem.players:setHp(100)
 
 -- Or use global access
-local health = players.hp()
-players.setHp(100)
+local health = players:hp()
+players:setHp(100)
 ```
 
 ## Available Methods
@@ -46,16 +46,16 @@ Gets the player ped entity.
 **Example:**
 ```lua
 -- Client-side: Get local player
-local playerPed = fivem.players.get()
+local playerPed = fivem.players:get()
 
 -- Or use global access
-local playerPed = players.get()
+local playerPed = players:get()
 
 -- Server-side: Get specific player
-local otherPlayerPed = fivem.players.get(5)
+local otherPlayerPed = fivem.players:get(5)
 
 -- Or use global access
-local otherPlayerPed = players.get(5)
+local otherPlayerPed = players:get(5)
 ```
 
 ### `players.serverId()`
@@ -67,10 +67,10 @@ Gets the current player's server ID.
 **Example:**
 ```lua
 -- Client-side only
-local serverId = fivem.players.serverId()
+local serverId = fivem.players:serverId()
 
 -- Or use global access
-local serverId = players.serverId()
+local serverId = players:serverId()
 print('My server ID:', serverId)
 ```
 
@@ -83,10 +83,10 @@ Gets the current player's local ID.
 **Example:**
 ```lua
 -- Client-side only
-local localId = fivem.players.localId()
+local localId = fivem.players:localId()
 
 -- Or use global access
-local localId = players.localId()
+local localId = players:localId()
 print('My local ID:', localId)
 ```
 
