@@ -1,4 +1,8 @@
-# Usage
+---
+description: This demonstrates how the user would create their own UI solely in javascript.
+---
+
+# Javascript Usage(Frontend)
 
 ## Creating a UI
 
