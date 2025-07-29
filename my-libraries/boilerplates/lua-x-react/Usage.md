@@ -1,4 +1,6 @@
-# Usage
+# Usage (React/UI)
+
+This page covers how to work with the React UI side of the lua-x-react boilerplate.
 
 ## Creating a Basic React Component
 
@@ -48,3 +50,34 @@ export default App;
      npm run dev
      ```
    - Open the provided local URL in your browser. You should see your new component rendered on the page!
+
+---
+
+## Communicating with the Client (Lua) Side
+
+### Sending Data to the Client
+
+Use the `fetchNui` utility to send data or requests to the client (Lua) side:
+
+```js
+import { fetchNui } from 'utils/fetchNui';
+
+fetchNui('myEvent', { foo: 'bar' }).then((response) => {
+  console.log('Response from client:', response);
+});
+```
+
+### Receiving Data from the Client
+
+Use the `useNuiEvent` hook to listen for messages sent from the client (Lua) side:
+
+```js
+import { useNuiEvent } from 'utils/useNuiEvent';
+
+useNuiEvent('configData', (data) => {
+  // Handle config data sent from the client
+  console.log('Received config:', data);
+});
+```
+
+These utilities are the recommended way to communicate between your React UI and the client scripts.

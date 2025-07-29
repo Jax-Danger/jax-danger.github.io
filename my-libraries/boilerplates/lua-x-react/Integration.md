@@ -1,51 +1,53 @@
-# FiveM Integration
+# FiveM Integration (Client/Lua)
 
-## Communicating Between React and Lua
+This page covers how to work with the client (Lua) side of the lua-x-react boilerplate.
 
-Your React UI can send and receive messages to/from your FiveM Lua scripts using NUI (Native UI) messages.
+## Sending Data to the UI
 
-### Sending a Message from React to Lua
+Use the included `SendReactMessage` helper to send data from your client script to the React UI:
 
-In your React component, use the `fetch` API to send a message:
+```lua
+RegisterCommand("ui", function()
+  SetNuiFocus(true, true) -- allows mouse and keyboard input in the UI
 
-```js
-// Example: Send a message to Lua
-fetch('https://lua-x-react-boilerplate/myEvent', {
-  method: 'POST',
-  body: JSON.stringify({ foo: 'bar' })
-});
+  SendReactMessage('configData', {
+    ServerName    = cfg.ServerName,
+    MaxPlayers    = cfg.MaxPlayers,
+    StartingMoney = cfg.StartingMoney,
+    isPvpEnabled  = cfg.EnablePvP
+  })
+end)
 ```
 
-### Receiving a Message in Lua
+> **Note:** This boilerplate is set up to use `type` in `SendNUIMessage` (not `action`) to avoid confusion and for consistency in your React event handlers.
 
-In your `client.lua`:
+You can also use `SendNUIMessage` directly if you need more control:
+
+```lua
+SendNUIMessage({ type = 'showMessage', text = 'Hello from Lua!' })
+```
+
+## Receiving Data from the UI
+
+To handle data sent from the React UI, use `RegisterNUICallback`:
 
 ```lua
 RegisterNUICallback('myEvent', function(data, cb)
-  print('Received from React:', data.foo)
+  print('Received from UI:', data.foo)
   cb('ok')
 end)
 ```
 
-### Sending a Message from Lua to React
+## Setting NUI Focus
 
-In your `client.lua`:
+To allow the user to interact with the UI (mouse/keyboard), use:
 
 ```lua
-SendNUIMessage({ action = 'showMessage', text = 'Hello from Lua!' })
+SetNuiFocus(true, true)
 ```
 
-In your React app, listen for messages:
-
-```js
-// Example: Listen for messages from Lua
-window.addEventListener('message', (event) => {
-  if (event.data.action === 'showMessage') {
-    alert(event.data.text);
-  }
-});
-```
+Set it to `false, false` to remove focus when closing the UI.
 
 ---
 
-This is the basic pattern for integrating your React UI with FiveM Lua scripts. 
+These are the recommended ways to integrate your client scripts with the React UI in this boilerplate. 

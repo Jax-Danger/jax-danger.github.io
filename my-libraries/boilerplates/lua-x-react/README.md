@@ -48,6 +48,12 @@ A boilerplate for building FiveM UIs using React (TypeScript or JavaScript) and 
 
 ---
 
+## ⚠️ Troubleshooting
+
+If you are having errors, make sure you are **NOT** running in `npm run dev` mode. For FiveM to use your latest UI, always run `npm run build` and use the built files.
+
+---
+
 ## 📂 File Structure
 
 ```

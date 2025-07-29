@@ -17,21 +17,23 @@ uiManager.createUI("myCustomUI", () => `
 
 This creates a UI with the ID `myCustomUI`. Show or hide it with `showUI(id)` and `hideUI(id)`.
 
----
+***
 
 ## Show & Hide the UI
 
 **Show:**
+
 ```javascript
 uiManager.showUI("myCustomUI");
 ```
 
 **Hide:**
+
 ```javascript
 uiManager.hideUI("myCustomUI");
 ```
 
----
+***
 
 ## Add a Close Button
 
@@ -43,7 +45,7 @@ createButton("closeBtn", "closeUI", {}, () => {
 });
 ```
 
----
+***
 
 ## Customizing with CSS
 
@@ -64,6 +66,6 @@ To load multiple stylesheets:
 uiManager.loadCustomStyles(["custom.css", "dark-theme.css"]);
 ```
 
----
+***
 
-For FiveM integration, see [Integration.md](./Integration.md). 
+For FiveM integration, see Integration.md.
