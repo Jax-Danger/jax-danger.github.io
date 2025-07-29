@@ -1,4 +1,10 @@
-# FiveM Integration
+---
+description: >-
+  This demonstrates how the user would send data to the UI, and receive data
+  from the UI.
+---
+
+# Client Usage
 
 ## Register the UI in `client.lua`
 

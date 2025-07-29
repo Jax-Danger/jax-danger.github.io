@@ -1,10 +1,10 @@
 # Lua x React Boilerplate
 
-A boilerplate for building FiveM UIs using React (TypeScript or JavaScript) and Lua. This template helps you quickly set up a modern UI for your FiveM scripts, with easy integration between Lua and React.
+A boilerplate for building FiveM UIs using React (TypeScript or JavaScript) and Lua. This template helps you quickly set up a modern UI for your FiveM scripts, with easy integration between Lua and Re
 
 ***
 
-## 🚀 Features
+### 🚀 Features
 
 * **React Frontend** – Build UIs with React (choose TypeScript or JavaScript).
 * **Lua Integration** – Communicate between your React UI and FiveM Lua scripts.
@@ -13,7 +13,7 @@ A boilerplate for building FiveM UIs using React (TypeScript or JavaScript) and 
 
 ***
 
-## 📦 Installation
+### 📦 Installation
 
 1. **Download the Boilerplate:**
    * Visit the [GitHub releases page](https://github.com/Jax-Danger/lua-react-boilerplate/releases).
@@ -27,7 +27,7 @@ A boilerplate for building FiveM UIs using React (TypeScript or JavaScript) and 
 
 ***
 
-## ⚡ Quick Start
+### ⚡ Quick Start
 
 1.  **Install dependencies:**
 
@@ -52,7 +52,13 @@ A boilerplate for building FiveM UIs using React (TypeScript or JavaScript) and 
 
 ***
 
-## 📂 File Structure
+### ⚠️ Troubleshooting
+
+If you are having errors, make sure you are **NOT** running in `npm run dev` mode. For FiveM to use your latest UI, always run `npm run build` and use the built files.
+
+***
+
+### 📂 File Structure
 
 ```
 lua-x-react-boilerplate/

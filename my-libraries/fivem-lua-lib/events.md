@@ -3,6 +3,7 @@
 The Events module provides a simplified API for handling FiveM events, replacing the traditional `AddEventHandler` with cleaner, more readable methods.
 
 ## Compatibility
+
 ✅ **Shared** - Works on both client and server-side
 
 ## Basic Usage
@@ -24,13 +25,16 @@ end)
 ## Available Methods
 
 ### `events.on(eventName, callback)`
+
 Adds an event handler for the specified event.
 
 **Parameters:**
-- `eventName` (string) - The name of the event to listen for
-- `callback` (function) - The function to execute when the event is triggered
+
+* `eventName` (string) - The name of the event to listen for
+* `callback` (function) - The function to execute when the event is triggered
 
 **Example:**
+
 ```lua
 fivem.events:on('playerSpawned', function()
   print('Player has spawned!')
@@ -42,30 +46,17 @@ events:on('playerSpawned', function()
 end)
 ```
 
-
-
-### `events:off(eventName)`
-Removes an event handler.
-
-**Parameters:**
-- `eventName` (string) - The name of the event to remove
-
-**Example:**
-```lua
-fivem.events:off('playerSpawned')
-
--- Or use global access
-events:off('playerSpawned')
-```
-
 ### `events:emit(eventName, ...)`
+
 Triggers a local event.
 
 **Parameters:**
-- `eventName` (string) - The name of the event to trigger
-- `...` - Additional arguments to pass to the event handlers
+
+* `eventName` (string) - The name of the event to trigger
+* `...` - Additional arguments to pass to the event handlers
 
 **Example:**
+
 ```lua
 fivem.events:emit('customEvent', 'Hello', 'World')
 
@@ -74,13 +65,16 @@ events:emit('customEvent', 'Hello', 'World')
 ```
 
 ### `events.emitServer(eventName, ...)`
+
 Triggers a server event.
 
 **Parameters:**
-- `eventName` (string) - The name of the event to trigger on the server
-- `...` - Additional arguments to pass to the server
+
+* `eventName` (string) - The name of the event to trigger on the server
+* `...` - Additional arguments to pass to the server
 
 **Example:**
+
 ```lua
 fivem.events.emitServer('savePlayerData', playerData)
 
@@ -89,114 +83,22 @@ events.emitServer('savePlayerData', playerData)
 ```
 
 ### `events.emitClient(eventName, target, ...)`
+
 Triggers a client event for a specific player.
 
 **Parameters:**
-- `eventName` (string) - The name of the event to trigger
-- `target` (number) - The player ID to send the event to
-- `...` - Additional arguments to pass to the client
+
+* `eventName` (string) - The name of the event to trigger
+* `target` (number) - The player ID to send the event to
+* `...` - Additional arguments to pass to the client
 
 **Example:**
+
 ```lua
 fivem.events:emitClient('showNotification', playerId, 'Welcome!')
 
 -- Or use global access
 events:emitClient('showNotification', playerId, 'Welcome!')
-```
-
-## Common Event Examples
-
-### Player Events
-```lua
--- Player spawn
-fivem.events:on('playerSpawned', function()
-  print('Player spawned!')
-end)
-
--- Or use global access
-events:on('playerSpawned', function()
-  print('Player spawned!')
-end)
-
--- Player death
-events:on('playerDied', function()
-  print('Player died!')
-end)
-
--- Player entering vehicle
-events:on('playerEnteredVehicle', function(vehicle, seat)
-  print('Player entered vehicle:', vehicle)
-end)
-```
-
-### Resource Events
-```lua
--- Resource start
-events:on('onResourceStart', function(resourceName)
-  if resourceName == GetCurrentResourceName() then
-    print('Resource started!')
-  end
-end)
-
--- Resource stop
-events:on('onResourceStop', function(resourceName)
-  if resourceName == GetCurrentResourceName() then
-    print('Resource stopping!')
-  end
-end)
-```
-
-### Custom Events
-```lua
--- Define custom event
-events:on('myCustomEvent', function(data)
-  print('Custom event received:', data)
-end)
-
--- Trigger custom event
-events:emit('myCustomEvent', {message = 'Hello World'})
-```
-
-## Server-Side Event Examples
-
-```lua
--- Server-side player connection handling
-events:on('playerConnecting', function(name, setKickReason, deferrals)
-  print('Player connecting:', name)
-  -- Handle player connection logic
-end)
-
--- Server-side player disconnection
-events:on('playerDropped', function(reason)
-  local playerId = source
-  print('Player disconnected:', playerId, 'Reason:', reason)
-  -- Clean up player data
-end)
-
--- Server-side custom event
-events:on('playerRequestMoney', function(amount)
-  local playerId = source
-  -- Handle money request logic
-  events:emitClient('moneyResponse', playerId, true, amount)
-end)
-```
-
-## Client-Side Event Examples
-
-```lua
--- Client-side spawn handling
-events:on('playerSpawned', function()
-  -- Set up player on spawn
-  players:setHp(200)
-end)
-
--- Client-side custom event
-events:on('showNotification', function(message)
-  print('Notification:', message)
-end)
-
--- Request money from server
-events:emitServer('playerRequestMoney', 1000)
 ```
 
 ## Best Practices
@@ -234,9 +136,9 @@ end)
 
 ## Migration from Traditional Events
 
-| Traditional | Library Method |
-|-------------|----------------|
-| `AddEventHandler('eventName', callback)` | `fivem.events:on('eventName', callback)` or `events:on('eventName', callback)` |
-| `TriggerEvent('eventName', ...)` | `fivem.events:emit('eventName', ...)` or `events:emit('eventName', ...)` |
-| `TriggerServerEvent('eventName', ...)` | `fivem.events:emitServer('eventName', ...)` or `events:emitServer('eventName', ...)` |
+| Traditional                                    | Library Method                                                                                       |
+| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `AddEventHandler('eventName', callback)`       | `fivem.events:on('eventName', callback)` or `events:on('eventName', callback)`                       |
+| `TriggerEvent('eventName', ...)`               | `fivem.events:emit('eventName', ...)` or `events:emit('eventName', ...)`                             |
+| `TriggerServerEvent('eventName', ...)`         | `fivem.events:emitServer('eventName', ...)` or `events:emitServer('eventName', ...)`                 |
 | `TriggerClientEvent('eventName', target, ...)` | `fivem.events:emitClient('eventName', target, ...)` or `events:emitClient('eventName', target, ...)` |

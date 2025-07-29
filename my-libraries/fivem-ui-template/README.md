@@ -33,12 +33,6 @@ A simple, modular template for building in-game UIs in FiveM using HTML, CSS, an
 
 ***
 
-## ⚡ Quick Start
-
-See Usage.md for detailed usage instructions and examples.
-
-***
-
 ## 📂 File Structure
 
 ```
