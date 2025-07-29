@@ -19,8 +19,6 @@ local fivem = require('fivem-library')
 - **[Events](Events.md)** - Simplified event handling
 - **[Players](Players.md)** - Player management and manipulation
 - **[Vehicles](Vehicles.md)** - Vehicle spawning and control
-- **[UI](UI.md)** - User interface management
-- **[Database](Database.md)** - MySQL database operations
 - **[Utilities](Utilities.md)** - Helper functions and utilities
 
 ### Advanced Features
@@ -65,8 +63,7 @@ fivem.players.teleport({x = 100.0, y = 200.0, z = 30.0})
 -- Vehicles
 local vehicle = fivem.vehicles.spawn('adder', {x = 0.0, y = 0.0, z = 30.0})
 
--- UI
-fivem.ui.show('hud', {health = 100, armor = 50})
+
 ```
 
 ## 🤝 Contributing

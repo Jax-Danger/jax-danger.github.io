@@ -89,131 +89,9 @@ vehicleExamples()
 
 ## Advanced Examples
 
-### Complete HUD System
-```lua
--- Complete HUD system with health, armor, and vehicle info
-local function createHUDSystem()
-  local hudData = {
-    health = 100,
-    armor = 0,
-    vehicle = nil,
-    speed = 0,
-    fuel = 100
-  }
-  
-  -- Show initial HUD
-  fivem.ui.show('hud', hudData)
-  
-  -- Update HUD every second
-  Citizen.CreateThread(function()
-    while true do
-      fivem.utils.wait(1000)
-      
-      -- Update player stats
-      hudData.health = fivem.players.health()
-      hudData.armor = GetPedArmour(fivem.players.get())
-      
-      -- Update vehicle stats if in vehicle
-      local vehicle = fivem.vehicles.get()
-      if vehicle ~= 0 then
-        hudData.vehicle = GetDisplayNameFromVehicleModel(GetEntityModel(vehicle))
-        hudData.speed = math.floor(GetEntitySpeed(vehicle) * 3.6) -- km/h
-        hudData.fuel = GetVehicleFuelLevel(vehicle)
-      else
-        hudData.vehicle = nil
-        hudData.speed = 0
-        hudData.fuel = 0
-      end
-      
-      -- Update UI
-      fivem.ui.update(hudData)
-    end
-  end)
-  
-  -- Hide HUD when resource stops
-  fivem.events.add('onResourceStop', function(resourceName)
-    if resourceName == GetCurrentResourceName() then
-      fivem.ui.hide()
-    end
-  end)
-end
 
-createHUDSystem()
-```
 
-### Player Database System
-```lua
--- Complete player database system
-local function createPlayerDatabaseSystem()
-  -- Player data cache
-  local playerData = {}
-  
-  -- Load player data from database
-  local function loadPlayerData(playerId)
-    fivem.db.fetch('SELECT * FROM players WHERE id = ?', {playerId}, function(result)
-      if result and result[1] then
-        playerData[playerId] = result[1]
-        print('Loaded data for player:', playerData[playerId].name)
-      else
-        -- Create new player
-        fivem.db.execute('INSERT INTO players (id, name, money, level) VALUES (?, ?, ?, ?)', {
-          playerId, GetPlayerName(playerId), 1000, 1
-        }, function()
-          playerData[playerId] = {
-            id = playerId,
-            name = GetPlayerName(playerId),
-            money = 1000,
-            level = 1
-          }
-          print('Created new player:', playerData[playerId].name)
-        end)
-      end
-    end)
-  end
-  
-  -- Save player data to database
-  local function savePlayerData(playerId)
-    if playerData[playerId] then
-      fivem.db.execute('UPDATE players SET money = ?, level = ? WHERE id = ?', {
-        playerData[playerId].money,
-        playerData[playerId].level,
-        playerId
-      })
-      print('Saved data for player:', playerData[playerId].name)
-    end
-  end
-  
-  -- Add money to player
-  local function addMoney(playerId, amount)
-    if playerData[playerId] then
-      playerData[playerId].money = playerData[playerId].money + amount
-      savePlayerData(playerId)
-      print(playerData[playerId].name .. ' now has $' .. playerData[playerId].money)
-    end
-  end
-  
-  -- Load data when player joins
-  fivem.events.add('playerConnecting', function(name, setKickReason, deferrals)
-    local playerId = source
-    loadPlayerData(playerId)
-  end)
-  
-  -- Save data when player disconnects
-  fivem.events.add('playerDropped', function(reason)
-    local playerId = source
-    savePlayerData(playerId)
-    playerData[playerId] = nil
-  end)
-  
-  -- Example usage
-  fivem.events.add('addMoney', function(amount)
-    local playerId = fivem.players.getServerId()
-    addMoney(playerId, amount)
-  end)
-end
 
-createPlayerDatabaseSystem()
-```
 
 ### Vehicle Spawner System
 ```lua
@@ -364,12 +242,7 @@ local function createPlayerClassSystem()
     end
   end)
   
-  Player:method("saveToDatabase", function(self)
-    fivem.db.execute('INSERT INTO players (id, name, money, level, experience) VALUES (?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE money = ?, level = ?, experience = ?', {
-      self.playerId, self.name, self.money, self.level, self.experience,
-      self.money, self.level, self.experience
-    })
-  end)
+
   
   -- Police officer class (extends Player)
   local PoliceOfficer = Player:extend("PoliceOfficer")
@@ -415,14 +288,7 @@ local function createPlayerClassSystem()
   officer:arrest(player)
   officer:promote()
   
-  -- Save data periodically
-  Citizen.CreateThread(function()
-    while true do
-      fivem.utils.wait(300000) -- Every 5 minutes
-      player:saveToDatabase()
-      officer:saveToDatabase()
-    end
-  end)
+
 end
 
 createPlayerClassSystem()
@@ -809,18 +675,7 @@ local function createCompleteGameSystem()
       fivem.utils.wait(1000) -- Update every second
       gameManager:update()
       
-      -- Show game stats every 30 seconds
-      if gameManager.gameTime % 30 == 0 then
-        fivem.ui.show('gameStats', {
-          totalPlayers = #gameManager.players,
-          totalVehicles = #gameManager.vehicles,
-          gameScore = gameState.score,
-          gameTime = fivem.utils.template("${minutes}:${seconds}", 
-            math.floor(gameManager.gameTime / 60),
-            gameManager.gameTime % 60
-          )
-        })
-      end
+
     end
   end)
   
@@ -834,8 +689,7 @@ local function createCompleteGameSystem()
         end
       end
       
-      -- Hide UI
-      fivem.ui.hide()
+
     end
   end)
   

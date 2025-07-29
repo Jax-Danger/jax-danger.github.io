@@ -31,7 +31,6 @@ Adds an event handler for the specified event.
 ```lua
 fivem.events.add('playerSpawned', function()
   print('Player has spawned!')
-  fivem.ui.show('hud', {health = 100})
 end)
 ```
 

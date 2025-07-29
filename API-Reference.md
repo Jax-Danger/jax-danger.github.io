@@ -160,60 +160,7 @@ Teleports a vehicle to the specified coordinates.
 
 **Returns:** `void`
 
-## UI Module
 
-### `fivem.ui.show(uiName, data)`
-Shows a UI with the specified name and data.
-
-**Parameters:**
-- `uiName` (string) - The name of the UI to show
-- `data` (table) - Data to pass to the UI
-
-**Returns:** `void`
-
-### `fivem.ui.hide()`
-Hides the currently displayed UI.
-
-**Returns:** `void`
-
-### `fivem.ui.update(data)`
-Updates the current UI with new data.
-
-**Parameters:**
-- `data` (table) - New data to update the UI with
-
-**Returns:** `void`
-
-## Database Module
-
-### `fivem.db.execute(query, params)`
-Executes a database query without returning results (INSERT, UPDATE, DELETE).
-
-**Parameters:**
-- `query` (string) - The SQL query to execute
-- `params` (table, optional) - Parameters for the query
-
-**Returns:** `void`
-
-### `fivem.db.fetch(query, params, callback)`
-Fetches all results from a database query.
-
-**Parameters:**
-- `query` (string) - The SQL query to execute
-- `params` (table, optional) - Parameters for the query
-- `callback` (function) - Function to handle the results
-
-**Returns:** `void`
-
-### `fivem.db.fetchScalar(query, params, callback)`
-Fetches a single value from the database.
-
-**Parameters:**
-- `query` (string) - The SQL query to execute
-- `params` (table, optional) - Parameters for the query
-- `callback` (function) - Function to handle the result
-
-**Returns:** `void`
 
 ## Utilities Module
 
@@ -383,16 +330,7 @@ end)
 }
 ```
 
-### UI Data
-```lua
-{
-  health = number,       -- Player health
-  armor = number,        -- Player armor
-  vehicle = string,      -- Vehicle name (if in vehicle)
-  speed = number,        -- Vehicle speed
-  fuel = number          -- Vehicle fuel
-}
-```
+
 
 ## Error Handling
 
@@ -423,17 +361,7 @@ end)
    end
    ```
 
-4. **Database Connection Issues**
-   ```lua
-   -- Handle database errors
-   fivem.db.fetch('SELECT * FROM players', {}, function(result)
-     if result then
-       -- Process result
-     else
-       print('Database query failed')
-     end
-   end)
-   ```
+
 
 ## Performance Considerations
 
@@ -470,17 +398,7 @@ end)
    end)
    ```
 
-3. **Limit Database Queries**
-   ```lua
-   -- Good: Batch operations
-   fivem.db.execute('INSERT INTO players (name, money) VALUES (?, ?), (?, ?)', {
-     'Player1', 1000, 'Player2', 2000
-   })
-   
-   -- Bad: Multiple individual queries
-   fivem.db.execute('INSERT INTO players (name, money) VALUES (?, ?)', {'Player1', 1000})
-   fivem.db.execute('INSERT INTO players (name, money) VALUES (?, ?)', {'Player2', 2000})
-   ```
+
 
 ## Migration Guide
 
@@ -502,17 +420,13 @@ end)
 | `DeleteEntity(vehicle)` | `fivem.vehicles.delete(vehicle)` |
 | `GetEntityCoords(vehicle)` | `fivem.vehicles.getCoords(vehicle)` |
 | `SetEntityCoords(vehicle, x, y, z)` | `fivem.vehicles.teleport(vehicle, coords)` |
-| `SendNUIMessage({type = 'show', data = data})` | `fivem.ui.show(uiName, data)` |
-| `SendNUIMessage({type = 'hide'})` | `fivem.ui.hide()` |
-| `SendNUIMessage({type = 'update', data = data})` | `fivem.ui.update(data)` |
+
 | `Citizen.Wait(ms)` | `fivem.utils.wait(ms)` |
 | `print(...)` | `fivem.utils.print(...)` |
 | `GetDistanceBetweenCoords(x1, y1, z1, x2, y2, z2)` | `fivem.utils.distance(pos1, pos2)` |
 | `math.floor(num + 0.5)` | `fivem.utils.round(num)` |
 | String concatenation | `fivem.utils.template(template, ...)` |
-| `MySQL.Async.execute(query, params)` | `fivem.db.execute(query, params)` |
-| `MySQL.Async.fetchAll(query, params, callback)` | `fivem.db.fetch(query, params, callback)` |
-| `MySQL.Async.fetchScalar(query, params, callback)` | `fivem.db.fetchScalar(query, params, callback)` |
+
 
 ### From Traditional OOP
 
@@ -542,7 +456,7 @@ Config = {
   defaultHealth = 200,
   defaultMoney = 1000,
   maxVehicles = 10,
-  databaseTimeout = 5000
+
 }
 ```
 

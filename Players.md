@@ -147,7 +147,6 @@ Citizen.CreateThread(function()
     
     if health < 50 then
       print('Warning: Low health detected!')
-      fivem.ui.show('warning', {message = 'Low health!'})
     end
   end
 end)

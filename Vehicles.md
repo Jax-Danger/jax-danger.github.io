@@ -168,7 +168,6 @@ Citizen.CreateThread(function()
       local health = GetVehicleEngineHealth(vehicle)
       if health < 500 then
         print('Warning: Vehicle engine health low!')
-        fivem.ui.show('warning', {message = 'Vehicle damaged!'})
       end
     end
   end
@@ -341,4 +340,4 @@ end
 
 ---
 
-**Next:** [UI](UI.md) | **Previous:** [Players](Players.md) 
+**Next:** [Utilities](Utilities.md) | **Previous:** [Players](Players.md) 
