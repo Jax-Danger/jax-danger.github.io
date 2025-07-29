@@ -21,7 +21,7 @@ I specialize in creating **development tools and libraries** that make FiveM dev
 
 ## 🎥 YouTube Content
 
-I create **comprehensive tutorials** on FiveM development, covering everything from basic scripting to advanced frameworks. Currently, I'm working on a **JavaScript framework series** for FiveM that will help developers build better, more maintainable code.
+I create **comprehensive tutorials** on FiveM development, covering everything from basic scripting to advanced frameworks. Currently, I'm working on a [**JavaScript framework series**](https://www.youtube.com/playlist?list=PLET0lZibGyeSHJ4iEqix-RqU34Gogw6_A) for FiveM that will help developers build better, more maintainable code.
 
 ## 🚫 Why I Don't Make Custom Scripts
 
