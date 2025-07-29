@@ -197,4 +197,4 @@ end)
 
 ***
 
-**Next:** [Players](players.md) | **Previous:** [Home](../Home.md)
+**Next:** [Players](players.md) | **Previous:** [Home](../../Home.md)
