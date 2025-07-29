@@ -26,15 +26,19 @@ dog:speak()
 ## Available Methods
 
 ### `Class.create(className)`
+
 Creates a new class with the specified name.
 
 **Parameters:**
-- `className` (string) - The name of the class
+
+* `className` (string) - The name of the class
 
 **Returns:**
-- `table` - The created class
+
+* `table` - The created class
 
 **Example:**
+
 ```lua
 local Vehicle = Class.create("Vehicle")
 local Player = Class.create("Player")
@@ -42,12 +46,15 @@ local Item = Class.create("Item")
 ```
 
 ### `Class:constructor(constructorFunction)`
+
 Defines the constructor function for the class.
 
 **Parameters:**
-- `constructorFunction` (function) - The constructor function
+
+* `constructorFunction` (function) - The constructor function
 
 **Example:**
+
 ```lua
 local Player = Class.create("Player")
 
@@ -60,13 +67,16 @@ end)
 ```
 
 ### `Class:method(methodName, methodFunction)`
+
 Adds a method to the class.
 
 **Parameters:**
-- `methodName` (string) - The name of the method
-- `methodFunction` (function) - The method function
+
+* `methodName` (string) - The name of the method
+* `methodFunction` (function) - The method function
 
 **Example:**
+
 ```lua
 local Player = Class.create("Player")
 
@@ -81,13 +91,16 @@ end)
 ```
 
 ### `Class:static(methodName, methodFunction)`
+
 Adds a static method to the class.
 
 **Parameters:**
-- `methodName` (string) - The name of the static method
-- `methodFunction` (function) - The static method function
+
+* `methodName` (string) - The name of the static method
+* `methodFunction` (function) - The static method function
 
 **Example:**
+
 ```lua
 local Vehicle = Class.create("Vehicle")
 
@@ -107,15 +120,19 @@ end)
 ```
 
 ### `Class:new(...)`
+
 Creates a new instance of the class.
 
 **Parameters:**
-- `...` - Arguments to pass to the constructor
+
+* `...` - Arguments to pass to the constructor
 
 **Returns:**
-- `table` - The new instance
+
+* `table` - The new instance
 
 **Example:**
+
 ```lua
 local player = Player:new("John Doe", 5000)
 local vehicle = Vehicle:new("adder", {x = 100, y = 200, z = 30})
@@ -124,15 +141,19 @@ local vehicle = Vehicle:new("adder", {x = 100, y = 200, z = 30})
 ## Inheritance
 
 ### `Class:extend(childClassName)`
+
 Creates a child class that inherits from the parent class.
 
 **Parameters:**
-- `childClassName` (string) - The name of the child class
+
+* `childClassName` (string) - The name of the child class
 
 **Returns:**
-- `table` - The child class
+
+* `table` - The child class
 
 **Example:**
+
 ```lua
 local Animal = Class.create("Animal")
 
@@ -173,15 +194,19 @@ myDog:fetch() -- Output: Buddy fetches the ball
 ## Type Checking
 
 ### `instance:isInstanceOf(className)`
+
 Checks if an instance is of a specific class or its subclasses.
 
 **Parameters:**
-- `className` (string) - The class name to check
+
+* `className` (string) - The class name to check
 
 **Returns:**
-- `boolean` - True if the instance is of the specified class
+
+* `boolean` - True if the instance is of the specified class
 
 **Example:**
+
 ```lua
 local myDog = Dog:new("Buddy", 3, "Golden Retriever")
 print(myDog:isInstanceOf(Dog)) -- true
@@ -190,12 +215,15 @@ print(myDog:isInstanceOf("Vehicle")) -- false
 ```
 
 ### `instance:getClassName()`
+
 Gets the class name of an instance.
 
 **Returns:**
-- `string` - The class name
+
+* `string` - The class name
 
 **Example:**
+
 ```lua
 local myDog = Dog:new("Buddy", 3, "Golden Retriever")
 print(myDog:getClassName()) -- "Dog"
@@ -204,6 +232,7 @@ print(myDog:getClassName()) -- "Dog"
 ## FiveM Integration Examples
 
 ### Player Class
+
 ```lua
 local Player = Class.create("Player")
 
@@ -248,6 +277,7 @@ print("Player health:", player:getHealth())
 ```
 
 ### Vehicle Class
+
 ```lua
 local Vehicle = Class.create("Vehicle")
 
@@ -300,6 +330,7 @@ end
 ```
 
 ### Inventory System
+
 ```lua
 local Item = Class.create("Item")
 
@@ -375,6 +406,7 @@ print("Inventory weight:", inventory:getCurrentWeight())
 ## Advanced Class Patterns
 
 ### Singleton Pattern
+
 ```lua
 local GameManager = Class.create("GameManager")
 
@@ -410,6 +442,7 @@ print(gameManager == gameManager2) -- true (same instance)
 ```
 
 ### Observer Pattern
+
 ```lua
 local EventEmitter = Class.create("EventEmitter")
 
@@ -455,6 +488,7 @@ player:emit("healthChanged", 100, 75)
 ```
 
 ### Factory Pattern
+
 ```lua
 local VehicleFactory = Class.create("VehicleFactory")
 
@@ -488,6 +522,7 @@ local suv = VehicleFactory.createVehicle("suv", {x = 10, y = 0, z = 30})
 ## Best Practices
 
 ### Method Organization
+
 ```lua
 local Player = Class.create("Player")
 
@@ -532,6 +567,7 @@ end)
 ```
 
 ### Error Handling
+
 ```lua
 local SafePlayer = Class.create("SafePlayer")
 
@@ -568,6 +604,7 @@ end)
 ```
 
 ### Memory Management
+
 ```lua
 local ResourceManager = Class.create("ResourceManager")
 
@@ -605,14 +642,14 @@ end)
 
 ## Migration from Traditional OOP
 
-| Traditional | Class System |
-|-------------|--------------|
-| `local Player = {}` | `local Player = Class.create("Player")` |
-| `function Player.new(...)` | `Player:constructor(function(self, ...) ... end)` |
-| `function Player:method(...)` | `Player:method("method", function(self, ...) ... end)` |
-| `local player = Player.new(...)` | `local player = Player:new(...)` |
-| `player:method(...)` | `player:method(...)` |
+| Traditional                      | Class System                                           |
+| -------------------------------- | ------------------------------------------------------ |
+| `local Player = {}`              | `local Player = Class.create("Player")`                |
+| `function Player.new(...)`       | `Player:constructor(function(self, ...) ... end)`      |
+| `function Player:method(...)`    | `Player:method("method", function(self, ...) ... end)` |
+| `local player = Player.new(...)` | `local player = Player:new(...)`                       |
+| `player:method(...)`             | `player:method(...)`                                   |
 
----
+***
 
-**Next:** [Examples](Examples.md) | **Previous:** [Utilities](Utilities.md) 
+**Next:** [Examples](examples.md) | **Previous:** [Utilities](utilities.md)

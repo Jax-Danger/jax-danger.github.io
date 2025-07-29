@@ -19,54 +19,68 @@ fivem.players.setHealth(100)
 ## Available Methods
 
 ### `players.get(playerId)`
+
 Gets the player ped entity.
 
 **Parameters:**
-- `playerId` (number, optional) - The player ID. If not provided, uses the local player.
+
+* `playerId` (number, optional) - The player ID. If not provided, uses the local player.
 
 **Returns:**
-- `number` - The player ped entity
+
+* `number` - The player ped entity
 
 **Example:**
+
 ```lua
 local playerPed = fivem.players.get()
 local otherPlayerPed = fivem.players.get(5)
 ```
 
 ### `players.getServerId()`
+
 Gets the current player's server ID.
 
 **Returns:**
-- `number` - The player's server ID
+
+* `number` - The player's server ID
 
 **Example:**
+
 ```lua
 local serverId = fivem.players.getServerId()
 print('My server ID:', serverId)
 ```
 
 ### `players.getLocalId()`
+
 Gets the current player's local ID.
 
 **Returns:**
-- `number` - The player's local ID
+
+* `number` - The player's local ID
 
 **Example:**
+
 ```lua
 local localId = fivem.players.getLocalId()
 print('My local ID:', localId)
 ```
 
 ### `players.getCoords(playerId)`
+
 Gets the player's coordinates.
 
 **Parameters:**
-- `playerId` (number, optional) - The player ID. If not provided, uses the local player.
+
+* `playerId` (number, optional) - The player ID. If not provided, uses the local player.
 
 **Returns:**
-- `table` - Coordinates table with x, y, z properties
+
+* `table` - Coordinates table with x, y, z properties
 
 **Example:**
+
 ```lua
 local coords = fivem.players.getCoords()
 print('Position:', coords.x, coords.y, coords.z)
@@ -75,13 +89,16 @@ local otherCoords = fivem.players.getCoords(5)
 ```
 
 ### `players.teleport(playerId, coords)`
+
 Teleports a player to the specified coordinates.
 
 **Parameters:**
-- `playerId` (number, optional) - The player ID. If not provided, teleports the local player.
-- `coords` (table) - Coordinates table with x, y, z properties
+
+* `playerId` (number, optional) - The player ID. If not provided, teleports the local player.
+* `coords` (table) - Coordinates table with x, y, z properties
 
 **Example:**
+
 ```lua
 -- Teleport local player
 fivem.players.teleport({x = 100.0, y = 200.0, z = 30.0})
@@ -91,15 +108,19 @@ fivem.players.teleport(5, {x = 150.0, y = 250.0, z = 40.0})
 ```
 
 ### `players.health(playerId)`
+
 Gets the player's health.
 
 **Parameters:**
-- `playerId` (number, optional) - The player ID. If not provided, uses the local player.
+
+* `playerId` (number, optional) - The player ID. If not provided, uses the local player.
 
 **Returns:**
-- `number` - The player's health (0-200)
+
+* `number` - The player's health (0-200)
 
 **Example:**
+
 ```lua
 local health = fivem.players.health()
 print('My health:', health)
@@ -108,13 +129,16 @@ local otherHealth = fivem.players.health(5)
 ```
 
 ### `players.setHealth(playerId, health)`
+
 Sets the player's health.
 
 **Parameters:**
-- `playerId` (number, optional) - The player ID. If not provided, sets the local player's health.
-- `health` (number) - The health value (0-200)
+
+* `playerId` (number, optional) - The player ID. If not provided, sets the local player's health.
+* `health` (number) - The health value (0-200)
 
 **Example:**
+
 ```lua
 -- Set local player health
 fivem.players.setHealth(100)
@@ -126,6 +150,7 @@ fivem.players.setHealth(5, 150)
 ## Common Player Operations
 
 ### Player Spawn Management
+
 ```lua
 fivem.events.add('playerSpawned', function()
   -- Set player health and armor on spawn
@@ -138,6 +163,7 @@ end)
 ```
 
 ### Health Monitoring
+
 ```lua
 -- Monitor player health
 Citizen.CreateThread(function()
@@ -153,6 +179,7 @@ end)
 ```
 
 ### Player Tracking
+
 ```lua
 -- Track player movement
 Citizen.CreateThread(function()
@@ -165,6 +192,7 @@ end)
 ```
 
 ### Multi-Player Operations
+
 ```lua
 -- Get all players in area
 local function getPlayersInRadius(centerCoords, radius)
@@ -202,6 +230,7 @@ local coords = {
 ```
 
 ### Common Locations
+
 ```lua
 -- Common spawn locations
 local spawnLocations = {
@@ -243,14 +272,14 @@ end
 
 ## Migration from Traditional Methods
 
-| Traditional | Library Method |
-|-------------|----------------|
-| `GetPlayerPed(-1)` | `fivem.players.get()` |
-| `GetEntityCoords(GetPlayerPed(-1))` | `fivem.players.getCoords()` |
+| Traditional                                  | Library Method                      |
+| -------------------------------------------- | ----------------------------------- |
+| `GetPlayerPed(-1)`                           | `fivem.players.get()`               |
+| `GetEntityCoords(GetPlayerPed(-1))`          | `fivem.players.getCoords()`         |
 | `SetEntityCoords(GetPlayerPed(-1), x, y, z)` | `fivem.players.teleport({x, y, z})` |
-| `GetEntityHealth(GetPlayerPed(-1))` | `fivem.players.health()` |
-| `SetEntityHealth(GetPlayerPed(-1), health)` | `fivem.players.setHealth(health)` |
+| `GetEntityHealth(GetPlayerPed(-1))`          | `fivem.players.health()`            |
+| `SetEntityHealth(GetPlayerPed(-1), health)`  | `fivem.players.setHealth(health)`   |
 
----
+***
 
-**Next:** [Vehicles](Vehicles.md) | **Previous:** [Events](Events.md) 
+**Next:** [Vehicles](vehicles.md) | **Previous:** [Events](events.md)

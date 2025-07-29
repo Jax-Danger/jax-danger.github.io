@@ -5,6 +5,7 @@ This page contains complete, practical examples of how to use the FiveM Lua Libr
 ## Basic Examples
 
 ### Simple Player Management
+
 ```lua
 -- Basic player operations
 local function basicPlayerExample()
@@ -29,6 +30,7 @@ basicPlayerExample()
 ```
 
 ### Event Handling
+
 ```lua
 -- Event handling examples
 local function eventExamples()
@@ -59,6 +61,7 @@ eventExamples()
 ```
 
 ### Vehicle Management
+
 ```lua
 -- Vehicle management examples
 local function vehicleExamples()
@@ -89,11 +92,8 @@ vehicleExamples()
 
 ## Advanced Examples
 
-
-
-
-
 ### Vehicle Spawner System
+
 ```lua
 -- Complete vehicle spawner system
 local function createVehicleSpawnerSystem()
@@ -197,6 +197,7 @@ createVehicleSpawnerSystem()
 ## Class System Examples
 
 ### Player Management with Classes
+
 ```lua
 -- Player management using the class system
 local function createPlayerClassSystem()
@@ -295,6 +296,7 @@ createPlayerClassSystem()
 ```
 
 ### Inventory System with Classes
+
 ```lua
 -- Complete inventory system using classes
 local function createInventoryClassSystem()
@@ -451,6 +453,7 @@ createInventoryClassSystem()
 ## Utility Examples
 
 ### Advanced Utility Functions
+
 ```lua
 -- Advanced utility examples
 local function advancedUtilityExamples()
@@ -528,6 +531,7 @@ advancedUtilityExamples()
 ## Complete Integration Example
 
 ### Full Game System
+
 ```lua
 -- Complete game system integrating all library features
 local function createCompleteGameSystem()
@@ -711,6 +715,6 @@ local gameSystem = createCompleteGameSystem()
 7. **Use template strings** - For readable and maintainable code
 8. **Handle events properly** - Clean up event handlers when needed
 
----
+***
 
-**Previous:** [Class System](Class-System.md) | **Next:** [API Reference](API-Reference.md) 
+**Previous:** [Class System](class-system.md) | **Next:** [API Reference](api-reference.md)

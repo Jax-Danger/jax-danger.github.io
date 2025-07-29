@@ -18,12 +18,15 @@ fivem.vehicles.delete(vehicle)
 ## Available Methods
 
 ### `vehicles.get()`
+
 Gets the current vehicle the player is in.
 
 **Returns:**
-- `number` - The vehicle entity, or 0 if not in a vehicle
+
+* `number` - The vehicle entity, or 0 if not in a vehicle
 
 **Example:**
+
 ```lua
 local vehicle = fivem.vehicles.get()
 if vehicle ~= 0 then
@@ -34,16 +37,20 @@ end
 ```
 
 ### `vehicles.spawn(model, coords)`
+
 Spawns a vehicle at the specified coordinates.
 
 **Parameters:**
-- `model` (string) - The vehicle model name (e.g., 'adder', 'zentorno')
-- `coords` (table) - Coordinates table with x, y, z properties
+
+* `model` (string) - The vehicle model name (e.g., 'adder', 'zentorno')
+* `coords` (table) - Coordinates table with x, y, z properties
 
 **Returns:**
-- `number` - The spawned vehicle entity
+
+* `number` - The spawned vehicle entity
 
 **Example:**
+
 ```lua
 local vehicle = fivem.vehicles.spawn('adder', {x = 100.0, y = 200.0, z = 30.0})
 if vehicle ~= 0 then
@@ -52,12 +59,15 @@ end
 ```
 
 ### `vehicles.delete(vehicle)`
+
 Deletes a vehicle entity.
 
 **Parameters:**
-- `vehicle` (number) - The vehicle entity to delete
+
+* `vehicle` (number) - The vehicle entity to delete
 
 **Example:**
+
 ```lua
 local vehicle = fivem.vehicles.get()
 if vehicle ~= 0 then
@@ -67,15 +77,19 @@ end
 ```
 
 ### `vehicles.getCoords(vehicle)`
+
 Gets the vehicle's coordinates.
 
 **Parameters:**
-- `vehicle` (number) - The vehicle entity
+
+* `vehicle` (number) - The vehicle entity
 
 **Returns:**
-- `table` - Coordinates table with x, y, z properties
+
+* `table` - Coordinates table with x, y, z properties
 
 **Example:**
+
 ```lua
 local vehicle = fivem.vehicles.get()
 if vehicle ~= 0 then
@@ -85,13 +99,16 @@ end
 ```
 
 ### `vehicles.teleport(vehicle, coords)`
+
 Teleports a vehicle to the specified coordinates.
 
 **Parameters:**
-- `vehicle` (number) - The vehicle entity
-- `coords` (table) - Coordinates table with x, y, z properties
+
+* `vehicle` (number) - The vehicle entity
+* `coords` (table) - Coordinates table with x, y, z properties
 
 **Example:**
+
 ```lua
 local vehicle = fivem.vehicles.get()
 if vehicle ~= 0 then
@@ -102,6 +119,7 @@ end
 ## Common Vehicle Operations
 
 ### Vehicle Spawning System
+
 ```lua
 -- Spawn vehicle and put player in it
 local function spawnVehicleForPlayer(model, coords)
@@ -131,6 +149,7 @@ local vehicle = spawnVehicleForPlayer('adder', fivem.players.getCoords())
 ```
 
 ### Vehicle Management
+
 ```lua
 -- Track spawned vehicles
 local spawnedVehicles = {}
@@ -157,6 +176,7 @@ end
 ```
 
 ### Vehicle Monitoring
+
 ```lua
 -- Monitor vehicle health
 Citizen.CreateThread(function()
@@ -175,6 +195,7 @@ end)
 ```
 
 ### Vehicle Customization
+
 ```lua
 -- Basic vehicle customization
 local function customizeVehicle(vehicle, color, plate)
@@ -204,6 +225,7 @@ customizeVehicle(vehicle, {primary = 0, secondary = 1}, 'MYPLATE')
 ## Popular Vehicle Models
 
 ### Sports Cars
+
 ```lua
 local sportsCars = {
   'adder',      -- Bugatti Veyron
@@ -218,6 +240,7 @@ local sportsCars = {
 ```
 
 ### SUVs and Trucks
+
 ```lua
 local suvs = {
   'baller',     -- Range Rover
@@ -230,6 +253,7 @@ local suvs = {
 ```
 
 ### Motorcycles
+
 ```lua
 local motorcycles = {
   'akuma',      -- Suzuki Hayabusa
@@ -244,6 +268,7 @@ local motorcycles = {
 ## Vehicle Spawning Best Practices
 
 ### Model Loading
+
 ```lua
 -- Always load models before spawning
 local function loadVehicleModel(model)
@@ -277,6 +302,7 @@ end
 ```
 
 ### Coordinate Validation
+
 ```lua
 -- Check if coordinates are valid for vehicle spawning
 local function isValidSpawnLocation(coords)
@@ -295,6 +321,7 @@ end
 ```
 
 ### Error Handling
+
 ```lua
 -- Comprehensive vehicle spawning with error handling
 local function spawnVehicleWithValidation(model, coords)
@@ -330,14 +357,14 @@ end
 
 ## Migration from Traditional Methods
 
-| Traditional | Library Method |
-|-------------|----------------|
-| `GetVehiclePedIsIn(GetPlayerPed(-1), false)` | `fivem.vehicles.get()` |
-| `CreateVehicle(hash, x, y, z, heading, true, false)` | `fivem.vehicles.spawn(model, coords)` |
-| `DeleteEntity(vehicle)` | `fivem.vehicles.delete(vehicle)` |
-| `GetEntityCoords(vehicle)` | `fivem.vehicles.getCoords(vehicle)` |
-| `SetEntityCoords(vehicle, x, y, z)` | `fivem.vehicles.teleport(vehicle, coords)` |
+| Traditional                                          | Library Method                             |
+| ---------------------------------------------------- | ------------------------------------------ |
+| `GetVehiclePedIsIn(GetPlayerPed(-1), false)`         | `fivem.vehicles.get()`                     |
+| `CreateVehicle(hash, x, y, z, heading, true, false)` | `fivem.vehicles.spawn(model, coords)`      |
+| `DeleteEntity(vehicle)`                              | `fivem.vehicles.delete(vehicle)`           |
+| `GetEntityCoords(vehicle)`                           | `fivem.vehicles.getCoords(vehicle)`        |
+| `SetEntityCoords(vehicle, x, y, z)`                  | `fivem.vehicles.teleport(vehicle, coords)` |
 
----
+***
 
-**Next:** [Utilities](Utilities.md) | **Previous:** [Players](Players.md) 
+**Next:** [Utilities](utilities.md) | **Previous:** [Players](players.md)

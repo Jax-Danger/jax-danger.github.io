@@ -30,12 +30,15 @@ print(message) -- Output: Welcome to Los Santos!
 ## Available Methods
 
 ### `utils.wait(ms)`
+
 Waits for the specified number of milliseconds.
 
 **Parameters:**
-- `ms` (number) - Milliseconds to wait
+
+* `ms` (number) - Milliseconds to wait
 
 **Example:**
+
 ```lua
 -- Wait 1 second
 fivem.utils.wait(1000)
@@ -48,12 +51,15 @@ fivem.utils.wait(2500)
 ```
 
 ### `utils.print(...)`
+
 Prints with template interpolation support.
 
 **Parameters:**
-- `...` - Values to print, supports template strings
+
+* `...` - Values to print, supports template strings
 
 **Example:**
+
 ```lua
 local playerName = "John"
 local money = 5000
@@ -66,12 +72,15 @@ fivem.utils.print("Player ${name} has ${money} dollars", playerName, money)
 ```
 
 ### `utils.debug(...)`
+
 Debug print (only if Config.debug is true).
 
 **Parameters:**
-- `...` - Values to print
+
+* `...` - Values to print
 
 **Example:**
+
 ```lua
 -- Debug information
 fivem.utils.debug('Player position:', fivem.players.getCoords())
@@ -79,16 +88,20 @@ fivem.utils.debug('Vehicle health:', GetVehicleEngineHealth(fivem.vehicles.get()
 ```
 
 ### `utils.distance(pos1, pos2)`
+
 Calculates the distance between two positions.
 
 **Parameters:**
-- `pos1` (table) - First position with x, y, z coordinates
-- `pos2` (table) - Second position with x, y, z coordinates
+
+* `pos1` (table) - First position with x, y, z coordinates
+* `pos2` (table) - Second position with x, y, z coordinates
 
 **Returns:**
-- `number` - Distance between the positions
+
+* `number` - Distance between the positions
 
 **Example:**
+
 ```lua
 local playerPos = fivem.players.getCoords()
 local targetPos = {x = 100.0, y = 200.0, z = 30.0}
@@ -97,16 +110,20 @@ print('Distance to target:', distance)
 ```
 
 ### `utils.round(num, decimals)`
+
 Rounds a number to the specified number of decimal places.
 
 **Parameters:**
-- `num` (number) - Number to round
-- `decimals` (number, optional) - Number of decimal places (default: 0)
+
+* `num` (number) - Number to round
+* `decimals` (number, optional) - Number of decimal places (default: 0)
 
 **Returns:**
-- `number` - Rounded number
+
+* `number` - Rounded number
 
 **Example:**
+
 ```lua
 local pi = 3.14159
 local rounded = fivem.utils.round(pi, 2) -- Returns 3.14
@@ -116,16 +133,20 @@ local roundedMoney = fivem.utils.round(money, 2) -- Returns 1234.57
 ```
 
 ### `utils.template(template, ...)`
+
 String interpolation with ${variable} syntax.
 
 **Parameters:**
-- `template` (string) - Template string with ${variable} placeholders
-- `...` - Values to substitute for variables
+
+* `template` (string) - Template string with ${variable} placeholders
+* `...` - Values to substitute for variables
 
 **Returns:**
-- `string` - Interpolated string
+
+* `string` - Interpolated string
 
 **Example:**
+
 ```lua
 local city = "Los Santos"
 local playerCount = 25
@@ -136,6 +157,7 @@ print(message) -- Output: Welcome to Los Santos! There are 25 players online.
 ## Common Utility Patterns
 
 ### Time Management
+
 ```lua
 -- Delay execution
 local function delayedExecution(callback, delay)
@@ -168,6 +190,7 @@ end, 1000)
 ```
 
 ### Distance Calculations
+
 ```lua
 -- Check if player is near a location
 local function isPlayerNearLocation(targetCoords, radius)
@@ -207,6 +230,7 @@ end
 ```
 
 ### String Formatting
+
 ```lua
 -- Format money with commas
 local function formatMoney(amount)
@@ -247,6 +271,7 @@ fivem.utils.print("Time: ${time}", formatTime(3661)) -- Output: Time: 1:01:01
 ```
 
 ### Data Validation
+
 ```lua
 -- Validate coordinates
 local function isValidCoords(coords)
@@ -276,6 +301,7 @@ end
 ```
 
 ### Performance Monitoring
+
 ```lua
 -- Measure execution time
 local function measureExecutionTime(func, ...)
@@ -306,6 +332,7 @@ end
 ```
 
 ### Error Handling
+
 ```lua
 -- Safe function execution
 local function safeExecute(func, ...)
@@ -346,6 +373,7 @@ end
 ## Advanced Utility Functions
 
 ### Math Utilities
+
 ```lua
 -- Clamp value between min and max
 local function clamp(value, min, max)
@@ -368,6 +396,7 @@ local interpolatedValue = lerp(0, 100, 0.5) -- Returns 50
 ```
 
 ### Table Utilities
+
 ```lua
 -- Deep copy table
 local function deepCopy(original)
@@ -403,6 +432,7 @@ end
 ```
 
 ### String Utilities
+
 ```lua
 -- Capitalize first letter
 local function capitalize(str)
@@ -462,14 +492,14 @@ end
 
 ## Migration from Traditional Methods
 
-| Traditional | Library Method |
-|-------------|----------------|
-| `Citizen.Wait(ms)` | `fivem.utils.wait(ms)` |
-| `print(...)` | `fivem.utils.print(...)` |
-| `GetDistanceBetweenCoords(x1, y1, z1, x2, y2, z2)` | `fivem.utils.distance(pos1, pos2)` |
-| `math.floor(num + 0.5)` | `fivem.utils.round(num)` |
-| String concatenation | `fivem.utils.template(template, ...)` |
+| Traditional                                        | Library Method                        |
+| -------------------------------------------------- | ------------------------------------- |
+| `Citizen.Wait(ms)`                                 | `fivem.utils.wait(ms)`                |
+| `print(...)`                                       | `fivem.utils.print(...)`              |
+| `GetDistanceBetweenCoords(x1, y1, z1, x2, y2, z2)` | `fivem.utils.distance(pos1, pos2)`    |
+| `math.floor(num + 0.5)`                            | `fivem.utils.round(num)`              |
+| String concatenation                               | `fivem.utils.template(template, ...)` |
 
----
+***
 
-**Next:** [Class System](Class-System.md) | **Previous:** [Vehicles](Vehicles.md) 
+**Next:** [Class System](class-system.md) | **Previous:** [Vehicles](vehicles.md)

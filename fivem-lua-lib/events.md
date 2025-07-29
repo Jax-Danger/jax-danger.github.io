@@ -21,13 +21,16 @@ end)
 ## Available Methods
 
 ### `events.add(eventName, callback)`
+
 Adds an event handler for the specified event.
 
 **Parameters:**
-- `eventName` (string) - The name of the event to listen for
-- `callback` (function) - The function to execute when the event is triggered
+
+* `eventName` (string) - The name of the event to listen for
+* `callback` (function) - The function to execute when the event is triggered
 
 **Example:**
+
 ```lua
 fivem.events.add('playerSpawned', function()
   print('Player has spawned!')
@@ -35,13 +38,16 @@ end)
 ```
 
 ### `events.modify(eventName, callback)`
+
 Modifies an existing event handler.
 
 **Parameters:**
-- `eventName` (string) - The name of the event to modify
-- `callback` (function) - The new function to execute
+
+* `eventName` (string) - The name of the event to modify
+* `callback` (function) - The new function to execute
 
 **Example:**
+
 ```lua
 fivem.events.modify('playerSpawned', function()
   print('Modified spawn handler!')
@@ -49,49 +55,61 @@ end)
 ```
 
 ### `events.remove(eventName)`
+
 Removes an event handler.
 
 **Parameters:**
-- `eventName` (string) - The name of the event to remove
+
+* `eventName` (string) - The name of the event to remove
 
 **Example:**
+
 ```lua
 fivem.events.remove('playerSpawned')
 ```
 
 ### `events.trigger(eventName, ...)`
+
 Triggers a local event.
 
 **Parameters:**
-- `eventName` (string) - The name of the event to trigger
-- `...` - Additional arguments to pass to the event handlers
+
+* `eventName` (string) - The name of the event to trigger
+* `...` - Additional arguments to pass to the event handlers
 
 **Example:**
+
 ```lua
 fivem.events.trigger('customEvent', 'Hello', 'World')
 ```
 
 ### `events.triggerServer(eventName, ...)`
+
 Triggers a server event.
 
 **Parameters:**
-- `eventName` (string) - The name of the event to trigger on the server
-- `...` - Additional arguments to pass to the server
+
+* `eventName` (string) - The name of the event to trigger on the server
+* `...` - Additional arguments to pass to the server
 
 **Example:**
+
 ```lua
 fivem.events.triggerServer('savePlayerData', playerData)
 ```
 
 ### `events.triggerClient(eventName, target, ...)`
+
 Triggers a client event for a specific player.
 
 **Parameters:**
-- `eventName` (string) - The name of the event to trigger
-- `target` (number) - The player ID to send the event to
-- `...` - Additional arguments to pass to the client
+
+* `eventName` (string) - The name of the event to trigger
+* `target` (number) - The player ID to send the event to
+* `...` - Additional arguments to pass to the client
 
 **Example:**
+
 ```lua
 fivem.events.triggerClient('showNotification', playerId, 'Welcome!')
 ```
@@ -99,6 +117,7 @@ fivem.events.triggerClient('showNotification', playerId, 'Welcome!')
 ## Common Event Examples
 
 ### Player Events
+
 ```lua
 -- Player spawn
 fivem.events.add('playerSpawned', function()
@@ -117,6 +136,7 @@ end)
 ```
 
 ### Resource Events
+
 ```lua
 -- Resource start
 fivem.events.add('onResourceStart', function(resourceName)
@@ -134,6 +154,7 @@ end)
 ```
 
 ### Custom Events
+
 ```lua
 -- Define custom event
 fivem.events.add('myCustomEvent', function(data)
@@ -167,13 +188,13 @@ end)
 
 ## Migration from Traditional Events
 
-| Traditional | Library Method |
-|-------------|----------------|
-| `AddEventHandler('eventName', callback)` | `fivem.events.add('eventName', callback)` |
-| `TriggerEvent('eventName', ...)` | `fivem.events.trigger('eventName', ...)` |
-| `TriggerServerEvent('eventName', ...)` | `fivem.events.triggerServer('eventName', ...)` |
+| Traditional                                    | Library Method                                         |
+| ---------------------------------------------- | ------------------------------------------------------ |
+| `AddEventHandler('eventName', callback)`       | `fivem.events.add('eventName', callback)`              |
+| `TriggerEvent('eventName', ...)`               | `fivem.events.trigger('eventName', ...)`               |
+| `TriggerServerEvent('eventName', ...)`         | `fivem.events.triggerServer('eventName', ...)`         |
 | `TriggerClientEvent('eventName', target, ...)` | `fivem.events.triggerClient('eventName', target, ...)` |
 
----
+***
 
-**Next:** [Players](Players.md) | **Previous:** [Home](Home.md) 
+**Next:** [Players](players.md) | **Previous:** [Home](../Home.md)
