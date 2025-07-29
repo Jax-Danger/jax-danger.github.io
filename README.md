@@ -62,8 +62,6 @@ fivem.players.teleport({x = 100.0, y = 200.0, z = 30.0})
 
 -- Vehicles
 local vehicle = fivem.vehicles.spawn('adder', {x = 0.0, y = 0.0, z = 30.0})
-
-
 ```
 
 ## 🤝 Contributing
