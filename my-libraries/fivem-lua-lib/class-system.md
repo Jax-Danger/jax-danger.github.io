@@ -1032,7 +1032,3 @@ end)
 | `local instance = Class.new(...)` | `Class:new(...)` |
 | `instance:method(...)` | `instance:method(...)` |
 | `Class.staticMethod = function(...)` | `Class:static("staticMethod", function(...) ... end)` |
-
----
-
-**Next:** [Examples](Examples.md) | **Previous:** [Utilities](Utilities.md) 

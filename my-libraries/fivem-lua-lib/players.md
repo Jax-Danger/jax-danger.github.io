@@ -548,7 +548,3 @@ end
 | `GetEntityHealth(GetPlayerPed(-1))` | `fivem.players.hp()` or `players.hp()` |
 | `SetEntityHealth(GetPlayerPed(-1), health)` | `fivem.players.setHp(health)` or `players.setHp(health)` |
 | `GetPlayerName(playerId)` | `fivem.players.name(playerId)` or `players.name(playerId)` |
-
----
-
-**Next:** [Vehicles](Vehicles.md) | **Previous:** [Events](Events.md) 

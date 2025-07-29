@@ -887,7 +887,3 @@ local success = safePlayerOperation(function(id)
   return true
 end, 5)
 ```
-
----
-
-**Next:** [API Reference](API-Reference.md) | **Previous:** [Class System](Class-System.md) 

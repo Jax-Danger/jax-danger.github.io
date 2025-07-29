@@ -644,7 +644,3 @@ end)
 | `DeleteEntity(vehicle)` | `fivem.vehicles.del(vehicle)` or `vehicles.del(vehicle)` |
 | `GetEntityCoords(vehicle)` | `fivem.vehicles.pos(vehicle)` or `vehicles.pos(vehicle)` |
 | `SetEntityCoords(vehicle, x, y, z)` | `fivem.vehicles.tp(vehicle, coords)` or `vehicles.tp(vehicle, coords)` |
-
----
-
-**Next:** [Utilities](Utilities.md) | **Previous:** [Players](Players.md) 

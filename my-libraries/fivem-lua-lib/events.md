@@ -240,7 +240,3 @@ end)
 | `TriggerEvent('eventName', ...)` | `fivem.events:emit('eventName', ...)` or `events:emit('eventName', ...)` |
 | `TriggerServerEvent('eventName', ...)` | `fivem.events:emitServer('eventName', ...)` or `events:emitServer('eventName', ...)` |
 | `TriggerClientEvent('eventName', target, ...)` | `fivem.events:emitClient('eventName', target, ...)` or `events:emitClient('eventName', target, ...)` |
-
----
-
-**Next:** [Players](Players.md) | **Previous:** [Home](Home.md) 

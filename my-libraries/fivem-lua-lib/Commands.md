@@ -287,7 +287,3 @@ end)
 | `RegisterCommand('name', handler, restricted)` | `fivem.commands:reg('name', handler, restricted)` or `commands:reg('name', handler, restricted)` |
 | `RegisterKeyMapping('command', 'description', 'mapper', 'key')` | `fivem.keyMapping:reg('command', 'description', 'mapper', 'key')` or `keyMapping:reg('command', 'description', 'mapper', 'key')` |
 | `TriggerEvent('chat:addSuggestion', 'name', 'help', params)` | `fivem.commands:suggest('name', 'help', params)` or `commands:suggest('name', 'help', params)` |
-
----
-
-**Next:** [Utilities](Utilities.md) | **Previous:** [Vehicles](Vehicles.md) 

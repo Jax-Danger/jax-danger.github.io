@@ -853,6 +853,3 @@ All library functions include built-in error handling and will return appropriat
 | `IsDuplicityVersion()` | `utils.server()` |
 | `not IsDuplicityVersion()` | `utils.client()` |
 
----
-
-**Previous:** [Examples](Examples.md) 

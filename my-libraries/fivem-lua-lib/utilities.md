@@ -614,7 +614,3 @@ end
 | `string.format(template, ...)` | `fivem.utils.tmpl(template, ...)` or `utils.tmpl(template, ...)` |
 | `IsDuplicityVersion()` | `fivem.utils.server()` or `utils.server()` |
 | `not IsDuplicityVersion()` | `fivem.utils.client()` or `utils.client()` |
-
----
-
-**Next:** [Class System](Class-System.md) | **Previous:** [Vehicles](Vehicles.md) 
