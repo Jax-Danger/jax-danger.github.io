@@ -1,10 +1,8 @@
 # Table of contents
 
-* [Welcome](README.md)
-
 ## FiveM Lua lib
 
-* [API Reference](fivem-lua-lib/api-reference.md)
+* [API Reference](README.md)
 * [Class System](fivem-lua-lib/class-system.md)
 * [Events](fivem-lua-lib/events.md)
 * [Examples](fivem-lua-lib/examples.md)

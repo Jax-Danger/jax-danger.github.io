@@ -717,4 +717,4 @@ local gameSystem = createCompleteGameSystem()
 
 ***
 
-**Previous:** [Class System](class-system.md) | **Next:** [API Reference](api-reference.md)
+**Previous:** [Class System](class-system.md) | **Next:** [API Reference](../)
