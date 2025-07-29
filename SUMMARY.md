@@ -11,3 +11,6 @@
   * [Players](my-libraries/fivem-lua-lib/players.md)
   * [Utilities](my-libraries/fivem-lua-lib/utilities.md)
   * [Vehicles](my-libraries/fivem-lua-lib/vehicles.md)
+* [FiveM UI Template](my-libraries/fivem-ui-template.md)
+* [Page 1](my-libraries/page-1.md)
+* [Lua x React Boilerplate](my-libraries/lua-x-react-boilerplate.md)
