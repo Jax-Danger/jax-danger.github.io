@@ -1,0 +1,16 @@
+# GitHub Pages Jekyll Configuration
+theme: jekyll-theme-cayman
+markdown: kramdown
+plugins:
+  - jekyll-relative-links
+
+# Enable markdown processing
+include: [".md"]
+
+# Set default layout for markdown files
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default" 
