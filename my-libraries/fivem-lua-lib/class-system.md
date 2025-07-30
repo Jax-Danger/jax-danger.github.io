@@ -6,38 +6,9 @@ The Class System provides a simple and intuitive way to create object-oriented c
 
 ✅ **Shared** - Works on both client and server-side
 
-### Basic Usage
-
-```lua
--- Create a class
-local Animal = fivem.Class.create("Animal")
-
--- Or use global access (no fivem prefix needed)
-local Animal = Class.create("Animal")
-
--- Add constructor
-Animal:constructor(function(self, name)
-  self.name = name
-end)
-
--- Add methods
-Animal:method("getName", function(self)
-  return self.name
-end)
-
--- Create instance
-local animal = Animal:new("Generic Animal")
-
--- Or use global access
-local animal = Animal:new("Generic Animal")
-
--- Use methods
-print(animal:getName()) -- Output: Generic Animal
-```
-
 ### Available Methods
 
-#### `Class.create(name)`
+#### `class(name)`
 
 Creates a new class with the specified name.
 
@@ -52,10 +23,10 @@ Creates a new class with the specified name.
 **Example:**
 
 ```lua
-local Animal = fivem.Class.create("Animal")
+local Animal = class("Animal")
 
 -- Or use global access
-local Animal = Class.create("Animal")
+local Animal = class("Animal")
 ```
 
 #### `Class:constructor(func)`
@@ -190,7 +161,7 @@ Creates a new class that extends the current class.
 **Example:**
 
 ```lua
-local Animal = fivem.Class.create("Animal")
+local Animal = fivem.class("Animal")
 Animal:constructor(function(self, name)
   self.name = name
 end)
@@ -202,7 +173,7 @@ Dog:constructor(function(self, name, breed)
 end)
 
 -- Or use global access
-local Animal = Class.create("Animal")
+local Animal = class("Animal")
 Animal:constructor(function(self, name)
   self.name = name
 end)
@@ -226,7 +197,7 @@ Adds a private method to the class (convention-based).
 **Example:**
 
 ```lua
-local Animal = fivem.Class.create("Animal")
+local Animal = fivem.class("Animal")
 
 Animal:private("validateName", function(self, name)
   return name and type(name) == 'string'
@@ -239,7 +210,7 @@ Animal:method("setName", function(self, name)
 end)
 
 -- Or use global access
-local Animal = Class.create("Animal")
+local Animal = class("Animal")
 
 Animal:private("validateName", function(self, name)
   return name and type(name) == 'string'
@@ -263,7 +234,7 @@ Calls the parent class constructor or method.
 **Example:**
 
 ```lua
-local Animal = fivem.Class.create("Animal")
+local Animal = fivem.class("Animal")
 Animal:constructor(function(self, name)
   self.name = name
 end)
@@ -275,7 +246,7 @@ Dog:constructor(function(self, name, breed)
 end)
 
 -- Or use global access
-local Animal = Class.create("Animal")
+local Animal = class("Animal")
 Animal:constructor(function(self, name)
   self.name = name
 end)

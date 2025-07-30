@@ -22,7 +22,6 @@ FiveM Lua Lib is a collection of reusable Lua functions, classes, and utilities 
 * **👥 Player Management**: Utilities for handling player data, permissions, and interactions
 * **🚗 Vehicle System**: Helpers for vehicle spawning, management, and customization
 * **📡 Event System**: Simplified event handling and communication
-* **💾 Database Integration**: Common database operations and data management
 * **🛠️ Utility Functions**: String manipulation, math helpers, and other common utilities
 * **🏗️ Class System**: Object-oriented programming support for complex systems
 
